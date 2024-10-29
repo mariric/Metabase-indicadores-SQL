@@ -61,8 +61,8 @@ ORDER BY language por idioma
 SELECT
     lead_id, current_education,
 # Contagem de quantidade por curso
-    COUNT (current_education) as Qtd_por_educacação
+    COUNT (current_education) as Qtd_por_educação
 from leads_basic_details
 # Agrupamento e Ordenação
 GROUP BY current_education
-ORDER BY Qtd_por_educacação asc
+ORDER BY Qtd_por_educação asc
