@@ -39,3 +39,30 @@ group by
     leads_interaction_details.lead_stage,
     leads_interaction_details.call_done_date,
     leads_interaction_details.call_status
+
+    ---------------------------------------------------------------------------------------------------------------------------------
+# Criação de tabela para média porcentual de Watched por idioma
+
+select
+    language, AVG(watched_percentage) AS PORCENTAGEM
+from leads_demo_watched_details
+
+# Criação de filtro : considerados valores acima de 0.5
+where watched_percentage > 0.5
+
+# Agrupamento por idioma
+GROUP BY language
+
+# Ordenação decrescente por idioma 
+ORDER BY language por idioma
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+# Criação de gráfico de barras de quantidade por educação, por curso
+SELECT
+    lead_id, current_education,
+# Contagem de quantidade por curso
+    COUNT (current_education) as Qtd_por_educacação
+from leads_basic_details
+# Agrupamento e Ordenação
+GROUP BY current_education
+ORDER BY Qtd_por_educacação asc
