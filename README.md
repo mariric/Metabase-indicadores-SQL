@@ -1,4 +1,4 @@
-# Criação de gráfico para mapeamento de quantidade de ligações atendidas, categorizadas por canal, no primeiro trimestre de 2022
+# Gráfico para mapeamento de quantidade de ligações atendidas, categorizadas por canal, no primeiro trimestre de 2022
 SELECT
 
     leads_basic_details.lead_id AS lead_basic,
@@ -41,7 +41,7 @@ group by
     leads_interaction_details.call_status
 
     ---------------------------------------------------------------------------------------------------------------------------------
-# Criação de tabela para média porcentual de Watched por idioma
+# Tabela para média porcentual de Watched por idioma
 
 select
     language, AVG(watched_percentage) AS PORCENTAGEM
@@ -57,7 +57,7 @@ GROUP BY language
 ORDER BY language por idioma
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
-# Criação de gráfico de barras de quantidade por educação, por curso
+# Gráfico de barras de quantidade por educação, por curso
 SELECT
     lead_id, current_education,
 # Contagem de quantidade por curso
@@ -66,3 +66,22 @@ from leads_basic_details
 # Agrupamento e Ordenação
 GROUP BY current_education
 ORDER BY Qtd_por_educação asc
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+# Cartão foi criado para apresentação da média de idade dos alunos, sendo o resultado desta query:
+SELECT 
+  ROUND (avg (age),0) as Media
+from leads_basic_details
+-- avg sendo código para cálculo de média. Neste caso, usamos para cálculo da média de idade dos alunos --
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+# Gráfico de setores apresentou a quantidade por gênero e, para isso, utilizamos a query a seguir:
+SELECT gender, COUNT(*) as Qtd_por_gênero
+From leads_basic_details
+GROUP BY gender
+Order By Qtd_por_genero
+
+-- count para contagem da quantidade por gênero. Então, além da quantidade total de alunos, tempos a categorização e separação por gênero --
+
+
+
